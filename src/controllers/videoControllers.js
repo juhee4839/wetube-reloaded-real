@@ -4,7 +4,7 @@ import Video from "../models/Video";
 //Video.find({}, (error, videos) => {});
 
 export const home = async(req, res) =>  {
-
+  const videos = await Video.find({});
   Video.find({}, (error, videos) => {
     return res.render("home", {pageTitle: "Home",videos}); 
   });
@@ -41,6 +41,7 @@ export const watch = (req, res) => {
           rating:0,
         },
       });
+      console.log(video);
       return res.redirect("/");
   };
 
