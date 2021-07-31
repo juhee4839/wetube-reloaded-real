@@ -29,7 +29,7 @@ export const watch = (req, res) => {
       return res.render("upload", {pageTitle: "Upload Video"});
   };
 
-  export const postUpload = (req, res) => {
+  export const postUpload = async(req, res) => {
       const { title, description, hashtags } = req.body;
       const video = new Video({
         title: title,
@@ -41,7 +41,8 @@ export const watch = (req, res) => {
           rating:0,
         },
       });
-      console.log(video);
+      const dbVideo = await video.save();
+      console.log(dbVideo); 
       return res.redirect("/");
   };
 
