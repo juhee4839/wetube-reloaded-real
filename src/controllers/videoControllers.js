@@ -31,25 +31,18 @@ export const watch = (req, res) => {
 
   export const postUpload = async(req, res) => {
       const { title, description, hashtags } = req.body;
-      try{
-
+      try {
         await Video.create({
-          title: title,
-          description, 
-          createdAt: Date.now(),
+          title,
+          description,
           hashtags: hashtags.split(",").map((word) => `#${word}`),
-          meta: {
-            views: 0,
-            rating:0,
-          },
         });
-         
         return res.redirect("/");
-      }catch(error){
-        console.log(error); 
-         return res.render("upload", {pageTitle: "Upload Video"});
-
+      } catch (error) {
+        return res.render("upload", {
+          pageTitle: "Upload Video",
+          errorMessage: error._message,
+        });
       }
-  };
-
+    };
 // <link rel="stylesheet" href="https://unpkg.com/mvp.css">
