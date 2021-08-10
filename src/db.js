@@ -2,11 +2,11 @@ import mongoose from "mongoose";
 
 
 mongoose.connect("mongodb://127.0.0.1:27017/wetube", { 
-    useNewUrlParser: true, 
+    useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify:false, 
+    useFindAndModify: false,
     useCreateIndex: true,
-});
+  });
 //mongodb://127.0.0.1:27017/
 
 const db = mongoose.connection;
