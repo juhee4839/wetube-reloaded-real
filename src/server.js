@@ -25,7 +25,8 @@ app.use(
         resave: true,
         saveUninitialized:true,
     })
-);
+); 
+//session is on th cookies One is cookies which is way that we use transform information between backend and frontend and the other thing is the session id
 
 app.use((req,res,next) => {
     res.locals.sexy = "you";

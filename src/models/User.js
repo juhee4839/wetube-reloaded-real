@@ -10,10 +10,9 @@ const userSchema = new mongoose.Schema({
     location: String,
 });
 
-userSchema.pre("save", async function(){
-    console.log("User password", this.password);
-    this.password = await bcrypt.hash(this.password, 5);
-});
+userSchema.pre('save', async function(){
+    this.passwoed = await bcrypt.hash(this.password,5);
+})
 
 
 const User = mongoose.model("user", userSchema);
