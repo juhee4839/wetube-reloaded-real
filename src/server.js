@@ -26,7 +26,12 @@ app.use(
         saveUninitialized:true,
     })
 ); 
+
+//cookies and sessions are sparetely
+// cookies are way to transfer thing sending the information
 //session is on th cookies One is cookies which is way that we use transform information between backend and frontend and the other thing is the session id
+//session ides are saved on the cookies cuz cookies are we use to move the session ides
+
 
 app.use((req,res,next) => {
     res.locals.sexy = "you";
